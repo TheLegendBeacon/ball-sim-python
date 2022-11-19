@@ -1,5 +1,5 @@
 # ball-sim-python
-The ball simulation, but in python. Also has a speed control, different colours and you add the balls.
+The ball simulation, but in python. Also has a speed control, different colours and you add the balls. This implementation uses raylib.
 
 # How to run
 This program uses Poetry.

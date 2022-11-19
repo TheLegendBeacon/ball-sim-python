@@ -11,7 +11,10 @@ Use the command `poetry install` and `poetry run python -m simulation` to run.
 - Right Click - Add ten balls
 
 ## Keyboard
-- Up Arrow - Increase speed by 0.1
-- Down Arrow - Decrease speed by 0.1
+- Up Arrow - Increases speed by 0.1
+- Down Arrow - Decreases speed by 0.1
 - Left Arrow and Right Arrow - Change colour 
-- Delete - Remove all balls.
+- Delete - Removes all balls.
+
+# Showcase
+![Showcase GIF](showcase.gif)

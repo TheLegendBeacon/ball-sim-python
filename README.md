@@ -14,3 +14,4 @@ Use the command `poetry install` and `poetry run python -m simulation` to run.
 - Up Arrow - Increase speed by 0.1
 - Down Arrow - Decrease speed by 0.1
 - Left Arrow and Right Arrow - Change colour 
+- Delete - Remove all balls.

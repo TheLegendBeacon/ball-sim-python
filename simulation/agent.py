@@ -3,8 +3,8 @@ from math import cos, sin
 
 
 class Screen:
-    def __init__(self, width, height, screen, speed=1) -> None:
-        self.size = (width, height)
+    def __init__(self, screen, speed=1) -> None:
+        self.size = (screen.get_screen_width(), screen.get_screen_height())
         self.screen = screen
         self.speed = speed
         self.agents = [] #[Agent((width/2, height/2)) for x in range(20)]
@@ -25,6 +25,9 @@ class Screen:
     
     def spawn(self, pos):
         self.agents.append(Agent(pos))
+    
+    def update_size(self, size):
+        self.size = size
 
 
 class Agent:

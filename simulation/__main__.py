@@ -1,14 +1,15 @@
 import pyray as pr
-from raylib import KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_DELETE
+from raylib import KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_DELETE, FLAG_WINDOW_RESIZABLE
 
 from .agent import Screen
 
-HEIGHT = 640
-WIDTH = 480
+WIDTH = 640
+HEIGHT = 480
 
-pr.init_window(HEIGHT, WIDTH, "The Ball Pit.")
+pr.set_config_flags(FLAG_WINDOW_RESIZABLE)
+pr.init_window(WIDTH, HEIGHT, "The Ball Pit.")
 pr.set_target_fps(60)
-screen = Screen(HEIGHT, WIDTH, pr, 1)
+screen = Screen(pr, 1)
 colours = [
     (255, 255, 255),
     (255, 0, 0),
@@ -20,14 +21,16 @@ while not pr.window_should_close():
     pr.begin_drawing()
     pr.clear_background(pr.BLACK)
 
+    if pr.is_window_resized():
+        screen.update_size((pr.get_screen_width(), pr.get_screen_height()))
 
     screen.step(1)
 
     pr.draw_text(
-        "Delete to remove balls | L/R arrow keys for colour", 10, 460, 20, pr.WHITE
+        "Delete to remove balls | L/R arrow keys for colour", 10, screen.size[1]-20, 20, pr.WHITE
     )
     pr.draw_text(
-        "Click to add balls  | Right-Click to add 10 balls", 10, 440, 20, pr.WHITE
+        "Click to add balls  | Right-Click to add 10 balls", 10, screen.size[1]-40, 20, pr.WHITE
     )
     pr.draw_text("Arrow key up to increase speed", 10, 20, 20, pr.WHITE)
     pr.draw_text("Arrow key down to decrease speed", 10, 40, 20, pr.WHITE)

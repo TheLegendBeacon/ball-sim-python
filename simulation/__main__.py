@@ -1,5 +1,5 @@
 import pyray as pr
-from raylib import KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT
+from raylib import KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_DELETE
 
 from .agent import Screen
 
@@ -63,6 +63,9 @@ while not pr.window_should_close():
             screen.colour = colours[0]
         else:
             screen.colour = colours[i+1]
+    
+    if pr.is_key_pressed(KEY_DELETE):
+        screen.agents = []
 
 
 pr.close_window()
